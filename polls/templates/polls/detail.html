@@ -1,9 +1,6 @@
-<!-- <h1>{{question.question_text}}</h1>
-<ul>
-    {% for choice in question.choice_set.all %}
-    <li>{{choice.choice_text}}</li>
-    {% endfor %}
-</ul> -->
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
 
 <form action="{% url 'polls:vote' question.id %}" method="post">
     {% csrf_token%}
@@ -21,3 +18,7 @@
     <br>
     <input type="submit" value="Vote">
 </form>
+
+<div>
+    <button type="button" onclick="location.href = '/polls'">Return to question list</button>
+</div>
